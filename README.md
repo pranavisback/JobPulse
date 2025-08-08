@@ -1,82 +1,85 @@
-# JobPulse
+# 🚀 JobPulse — Next-Gen Job Tracking & Discovery
 
-Modern Angular application for job tracking and discovery.
+[![Angular](https://img.shields.io/badge/Angular-17+-DD0031?style=flat-square&logo=angular)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js)](https://nodejs.org/)
+[![RxJS](https://img.shields.io/badge/RxJS-7+-B7178C?style=flat-square&logo=reactivex)](https://rxjs.dev/)
+[![Express](https://img.shields.io/badge/Backend-Express-000000?style=flat-square&logo=express)
+](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248?style=flat-square&logo=mongodb)](https://mongodb.com/)
 
-- Frontend: Angular 17 + TypeScript + RxJS
-- Build: Angular CLI
-- Node 18+ required
+> **Track your job search, discover opportunities, and manage your career pipeline—all in one sleek, modern Angular app.**
 
-## Quick start
+---
 
-- Prerequisites:
-  - Node.js 18+ and npm
-  - Git
+## 🌐 Live Demo
 
-- Setup
-  - Clone: `https://github.com/pranavisback/JobPulse.git`
-  - Install: `cd frontend && npm install`
-  - Open Another Terminal : `cd backend && npm install`
-  - Dev server: `npm start` (or `npx ng serve -o`)
-  - Build: `npm run build`
+<div align="center">
+  <a href="https://your-jobpulse-demo-url.com" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Try_JobPulse_Live-4CAF50?style=for-the-badge&logoColor=white&labelColor=2E7D32&logo=angular" alt="Live Demo"/>
+  </a>
+</div>
 
-- Default dev URL: http://localhost:4200
+---
 
-## Scripts (package.json)
+## 🎥 Preview
 
-- `npm start` – start dev server with live reload
-- `npm run build` – production build to `dist/`
-- `npm run build:dev` – development build (if defined)
-- `npm test` – unit tests (if configured)
-- `npm run lint` – lint (if configured)
+[![JobPulse Preview](https://img.youtube.com/vi/your-video-id/maxresdefault.jpg)](https://youtu.be/your-video-id)
 
-Note: If a script is missing, use the Angular CLI directly: `npx ng <command>`.
+---
 
-## Build and deploy
+## ✨ Key Features
 
-- Production build: `npm run build`
-- Output path: `frontend/dist/`
-- Static hosting options: GitHub Pages, Netlify, Vercel, Firebase Hosting, Nginx
+- **📊 Job Application Tracker:** Seamlessly manage and categorize all your job applications.
+- **🔎 Smart Search & Filters:** Quickly find jobs by status, company, title, or custom tags.
+- **📅 Interview Scheduler:** Keep up with interviews, reminders, and notes.
+- **📈 Analytics Dashboard:** Visualize your job search journey with charts and stats.
+- **👤 Secure Authentication:** Modern login experience (OAuth-ready).
+- **📝 Notes & Attachments:** Add notes, upload resumes, and track feedback for each job.
+- **⚡ Super Fast & Responsive:** Built with Angular 17, optimized for all devices.
 
-Tip: Set correct base href if deploying under a subpath:
-- `npx ng build --base-href /your-subpath/`
+---
 
-## Project layout
+## 🛠️ Tech Stack Used
 
-- `frontend/` – Angular app root
-  - `src/`
-    - `index.html` – app shell
-    - `main.ts` – bootstrap
-    - `app/` – components, services, routes, etc.
-  - `angular.json` – Angular workspace config
-  - `tsconfig*.json` – TypeScript configs
-  - `package.json` – dependencies and scripts
+| Frontend        | Backend         | Database   | Utilities  |
+|-----------------|----------------|------------|------------|
+| ![Angular](https://img.shields.io/badge/-Angular-DD0031?logo=angular&logoColor=white&style=flat) | ![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white&style=flat) | ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white&style=flat) | ![RxJS](https://img.shields.io/badge/-RxJS-B7178C?logo=reactivex&logoColor=white&style=flat) |
+| TypeScript      | Express.js      |            | JWT Auth   |
+| Angular Material| REST API        |            | NgRx (state mgmt) |
 
-## Tech stack
+---
 
-- Angular 17
-- TypeScript
-- RxJS
-- Zone.js (browser integration)
+## 🚀 Quick Start
 
-## Troubleshooting
+### Prerequisites
 
-- Node version: ensure v18+ (`node -v`)
-- Clean install: delete `node_modules` and run `npm install`
-- Port in use: `npx ng serve --port 4300`
-- 404 favicon: an inline SVG favicon is used to avoid network requests
+- **Node.js** v18+
+- **npm** v9+
+- **MongoDB** (Cloud or Local)
+- **Git**
 
-## Contributing
+### Installation
 
-- Fork and create a feature branch
-- Keep PRs small and focused
-- Add tests where applicable
-- Follow Angular style guide
+```bash
+# 1. Clone the repository
+git clone https://github.com/pranavisback/JobPulse.git
+cd JobPulse
 
-## Security
+# 2. Install frontend
+cd frontend
+npm install
 
-- Report vulnerabilities via private issue or security advisory
-- Do not open public issues for sensitive reports
+# 3. Install backend
+cd ../backend
+npm install
 
-## License
+# 4. Environment variables
+cp .env.example .env
+# Edit .env with your DB and secret config
 
-MIT. See [LICENSE](./LICENSE).
+# 5. Start backend (in backend/)
+npm run dev
+
+# 6. Start frontend (in frontend/)
+npm start
