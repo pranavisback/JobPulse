@@ -13,8 +13,9 @@ Modern Angular application for job tracking and discovery.
   - Git
 
 - Setup
-  - Clone: `git clone https://github.com/<your-org>/JobPulse.git`
+  - Clone: `https://github.com/pranavisback/JobPulse.git`
   - Install: `cd frontend && npm install`
+  - Open Another Terminal : `cd backend && npm install`
   - Dev server: `npm start` (or `npx ng serve -o`)
   - Build: `npm run build`
 
