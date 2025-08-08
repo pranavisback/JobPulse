@@ -15,8 +15,8 @@
 ## 🌐 Live Demo
 
 <div align="center">
-  <a href="https://your-jobpulse-demo-url.com" target="_blank">
-    <img src="https://img.shields.io/badge/🚀_Try_JobPulse_Live-4CAF50?style=for-the-badge&logoColor=white&labelColor=2E7D32&logo=angular" alt="Live Demo"/>
+  <a href="#" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Coming_Soon-4CAF50?style=for-the-badge&logoColor=white&labelColor=2E7D32&logo=angular" alt="Coming Soon"/>
   </a>
 </div>
 
