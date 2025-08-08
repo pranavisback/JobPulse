@@ -22,12 +22,6 @@
 
 ---
 
-## 🎥 Preview
-
-[![JobPulse Preview](https://img.youtube.com/vi/your-video-id/maxresdefault.jpg)](https://youtu.be/your-video-id)
-
----
-
 ## ✨ Key Features
 
 - **📊 Job Application Tracker:** Seamlessly manage and categorize all your job applications.
