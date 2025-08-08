@@ -1,0 +1,4 @@
+mat-card { max-width: 420px; margin: 40px auto; }
+.full { width: 100%; }
+button { min-width: 100px; }
+mat-progress-spinner { margin-right: 8px; vertical-align: middle; }

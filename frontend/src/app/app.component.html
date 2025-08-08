@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span style="cursor:pointer" routerLink="/">JobPulse</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="auth.isAuthenticated(); else guest">
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/jobs">Jobs</button>
+    <button mat-button (click)="logout()">Logout</button>
+  </ng-container>
+  <ng-template #guest>
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Register</button>
+  </ng-template>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,36 @@
+<mat-card>
+  <h2>Register</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="form.controls.name.invalid">Enter a valid name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" />
+      <mat-error *ngIf="form.controls.email.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="form.controls.email.hasError('email')">Invalid email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+      <mat-error *ngIf="form.controls.password.invalid">Min 6 characters</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" formControlName="confirm" />
+      <mat-error *ngIf="form.controls.confirm.hasError('required')">Confirm password</mat-error>
+      <mat-error *ngIf="form.controls.confirm.hasError('mismatch')">Passwords do not match</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="loading || form.invalid">
+      <mat-progress-spinner *ngIf="loading" mode="indeterminate" diameter="18"></mat-progress-spinner>
+      <span *ngIf="!loading">Create Account</span>
+    </button>
+  </form>
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+</mat-card>

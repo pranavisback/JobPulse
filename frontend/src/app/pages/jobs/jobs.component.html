@@ -1,0 +1,109 @@
+<h2>Jobs</h2>
+
+<mat-card>
+  <h3>Add Job</h3>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Company</mat-label>
+        <input matInput formControlName="company" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="Applied">Applied</mat-option>
+          <mat-option value="Interview">Interview</mat-option>
+          <mat-option value="Offer">Offer</mat-option>
+          <mat-option value="Rejected">Rejected</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Applied Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="appliedDate" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Add</button>
+  </form>
+</mat-card>
+
+<mat-card style="margin-top:16px;">
+  <h3>Your Applications</h3>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="!loading && jobs.length === 0">No jobs yet.</div>
+
+  <table mat-table [dataSource]="jobs" *ngIf="!loading && jobs.length > 0" class="mat-elevation-z1">
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let j">
+        <ng-container *ngIf="editId !== j._id; else editTitle">{{ j.title }}</ng-container>
+        <ng-template #editTitle>
+          <input matInput [formControl]="editForm.controls.title" />
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="company">
+      <th mat-header-cell *matHeaderCellDef> Company </th>
+      <td mat-cell *matCellDef="let j">
+        <ng-container *ngIf="editId !== j._id; else editCompany">{{ j.company }}</ng-container>
+        <ng-template #editCompany>
+          <input matInput [formControl]="editForm.controls.company" />
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let j">
+        <ng-container *ngIf="editId !== j._id; else editStatus">{{ j.status }}</ng-container>
+        <ng-template #editStatus>
+          <mat-select [formControl]="editForm.controls.status" style="width: 140px;">
+            <mat-option value="Applied">Applied</mat-option>
+            <mat-option value="Interview">Interview</mat-option>
+            <mat-option value="Offer">Offer</mat-option>
+            <mat-option value="Rejected">Rejected</mat-option>
+          </mat-select>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="appliedDate">
+      <th mat-header-cell *matHeaderCellDef> Applied </th>
+      <td mat-cell *matCellDef="let j">
+        <ng-container *ngIf="editId !== j._id; else editDate">{{ j.appliedDate | date:'mediumDate' }}</ng-container>
+        <ng-template #editDate>
+          <input matInput [matDatepicker]="dp" [formControl]="editForm.controls.appliedDate" style="width: 150px;" />
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp></mat-datepicker>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let j">
+        <ng-container *ngIf="editId !== j._id; else editActions">
+          <button mat-icon-button color="primary" (click)="startEdit(j)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="remove(j)"><mat-icon>delete</mat-icon></button>
+        </ng-container>
+        <ng-template #editActions>
+          <button mat-button color="primary" (click)="saveEdit(j)" [disabled]="editForm.invalid">Save</button>
+          <button mat-button (click)="cancelEdit()">Cancel</button>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
